@@ -1,0 +1,174 @@
+@use "../../style/variables" as *;
+@use "../../style/mixins" as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  transition:
+    background $transition-base,
+    box-shadow $transition-base;
+
+  &__scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: $shadow-sm;
+  }
+
+  &__inner {
+
+  max-width: $container-max;
+  height: 82px;
+
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+  // LOGO
+  &__brand {
+    font-family: $font-display;
+    font-size: 2rem;
+    font-weight: 600;
+
+    color: $color-dark;
+
+
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // MENU
+  &__nav {
+    @include flex(row, center, center, 2.5rem);
+
+    a {
+      position: relative;
+
+      font-family: $font-body;
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      color: $color-text;
+
+      transition: color 0.3s ease;
+
+      &::after {
+        
+        display: none  ;
+
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      
+    }
+
+    
+  }
+
+  &__navOpen {
+    right: 0;
+  }
+
+  // BOTÃO
+ &__cta {
+  justify-self: end;
+
+  @include btn-base;
+
+  background: $color-primary;
+  color: $color-white;
+
+  padding: 0.9rem 1.6rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  box-shadow: none;
+
+  &:hover {
+    background: darken($color-primary, 5%);
+    transform: translateY(-1px);
+  }
+
+  svg {
+    font-size: 1rem;
+  }
+
+
+
+    @include respond-below(lg) {
+      display: none;
+    }
+  }
+
+  // HAMBURGER
+  &__burger {
+    display: none;
+
+    @include respond-below(lg) {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      background: transparent;
+      border: none;
+
+      z-index: 1000;
+
+      span {
+        width: 26px;
+        height: 2px;
+
+        background: $color-dark;
+
+        border-radius: 999px;
+
+        transition: 0.3s;
+      }
+    }
+  }
+
+  &__burgerOpen {
+    span:nth-child(1) {
+      transform: rotate(45deg) translateY(10px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-10px);
+    }
+  }
+}
