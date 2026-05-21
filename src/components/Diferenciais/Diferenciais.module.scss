@@ -1,0 +1,160 @@
+@use "../../style/variables" as *;
+@use "../../style/mixins" as *;
+
+.diferenciais {
+  @include section($space-2xl);
+
+  background: $color-bg;
+
+  overflow: hidden;
+
+  &__container {
+    @include container;
+  }
+
+  // HEADER
+  &__heading {
+    text-align: center;
+
+    margin-bottom: $space-2xl;
+
+    @include respond-below(md) {
+      margin-bottom: $space-xl;
+    }
+  }
+
+  &__title {
+    @include display(clamp(2.5rem, 5vw, 3.6rem), 600);
+
+    color: $color-dark;
+
+    position: relative;
+
+    display: inline-block;
+
+    padding-bottom: $space-md;
+
+    @include respond-below(md) {
+      font-size: 2.3rem;
+    }
+
+    @include respond-below(sm) {
+      font-size: 1.9rem;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      bottom: 0;
+
+      transform: translateX(-50%);
+
+      width: 70px;
+      height: 2px;
+
+      background: $color-primary;
+      border-radius: $radius-full;
+    }
+  }
+
+  // GRID
+  &__grid {
+    @include grid(3, $space-md);
+
+    @include respond-below(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // CARD
+  &__card {
+    background: $color-white;
+
+    border: 1px solid $color-border;
+
+    border-radius: $radius-lg;
+
+    padding: 2.2rem;
+
+    min-height: 280px;
+
+    transition:
+      transform $transition-base,
+      box-shadow $transition-base,
+      border-color $transition-base;
+
+    @include flex(column, flex-start, flex-start, $space-md);
+
+    &:hover {
+      transform: translateY(-4px);
+
+      box-shadow: $shadow-md;
+
+      border-color: rgba($color-primary, 0.18);
+    }
+
+    @include respond-below(md) {
+      min-height: auto;
+    }
+
+    @include respond-below(sm) {
+      padding: 1.8rem;
+    }
+  }
+
+  // ICON
+  &__icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: $radius-full;
+
+    background: rgba($color-primary, 0.08);
+
+    color: $color-primary;
+
+    @include flex-center;
+
+    font-size: 1.4rem;
+
+    flex-shrink: 0;
+  }
+
+  // CARD TITLE
+  &__cardTitle {
+    @include display($fs-xl, 600);
+
+    color: $color-dark;
+
+    line-height: 1.15;
+
+    max-width: 220px;
+
+    @include respond-below(sm) {
+      font-size: 1.5rem;
+    }
+  }
+
+  // TEXT
+  &__text {
+    @include body($fs-sm);
+
+    color: $color-text-light;
+
+    line-height: 1.8;
+
+    max-width: 280px;
+
+    @include respond-below(sm) {
+      max-width: 100%;
+    }
+  }
+}
+
