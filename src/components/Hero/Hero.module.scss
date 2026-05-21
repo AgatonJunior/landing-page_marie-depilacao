@@ -1,0 +1,250 @@
+@use "../../style/variables" as *;
+@use "../../style/mixins" as *;
+
+.hero {
+  min-height: 100vh;
+
+  background: $color-bg;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: 8rem;
+
+  overflow: hidden;
+
+  &__container {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+
+    gap: $space-3xl;
+
+    @include respond-below(xl) {
+      gap: $space-2xl;
+    }
+
+    @include respond-below(lg) {
+      grid-template-columns: 1fr;
+      gap: $space-2xl;
+      text-align: center;
+    }
+
+    @include respond-below(md) {
+      gap: $space-xl;
+    }
+  }
+
+  // LEFT
+  &__content {
+    max-width: 720px;
+  }
+
+  &__label {
+    @include label;
+
+    color: $color-primary;
+
+    margin-bottom: $space-lg;
+  }
+
+  &__title {
+    @include display(clamp(4rem, 8vw, 6.5rem), 600);
+
+    line-height: 0.9;
+
+    color: $color-dark;
+
+    letter-spacing: -0.06em;
+
+    margin-bottom: $space-lg;
+
+    @include respond-below(xl) {
+      font-size: 5.5rem;
+    }
+
+    @include respond-below(lg) {
+      font-size: 4.8rem;
+    }
+
+    @include respond-below(md) {
+      font-size: 4rem;
+      line-height: 1;
+    }
+
+    @include respond-below(sm) {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__description {
+    max-width: 500px;
+
+    @include body($fs-md);
+
+    color: $color-text-light;
+
+    line-height: 1.8;
+
+    margin-bottom: $space-xl;
+
+    @include respond-below(lg) {
+      margin-inline: auto;
+    }
+
+    @include respond-below(md) {
+      font-size: $fs-base;
+      line-height: 1.7;
+    }
+
+    @include respond-below(sm) {
+      font-size: $fs-sm;
+    }
+  }
+
+  &__buttons {
+    @include flex(row, center, flex-start, $space-sm);
+
+    @include respond-below(md) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    @include respond-below(sm) {
+      gap: $space-xs;
+    }
+  }
+
+  // BUTTONS
+  &__primary {
+    @include btn-primary;
+
+    padding: 1rem 2rem;
+
+    font-size: $fs-xs;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+  }
+
+  &__secondary {
+    @include btn-outline;
+
+    padding: 1rem 2rem;
+
+    font-size: $fs-xs;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+  }
+
+  // RIGHT
+  &__imageWrapper {
+    position: relative;
+
+    display: flex;
+    justify-content: flex-end;
+
+    @include respond-below(lg) {
+      justify-content: center;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    max-width: 520px;
+
+    height: 720px;
+
+    @include img-cover;
+
+    border-radius: $radius-xl;
+
+    box-shadow: $shadow-lg;
+
+    @include respond-below(xl) {
+      height: 640px;
+    }
+
+    @include respond-below(lg) {
+      max-width: 480px;
+      height: 620px;
+    }
+
+    @include respond-below(md) {
+      max-width: 420px;
+      height: 540px;
+    }
+
+    @include respond-below(sm) {
+      max-width: 100%;
+      height: 460px;
+    }
+  }
+
+  // BADGE
+  &__badge {
+    position: absolute;
+
+    left: -40px;
+    bottom: 60px;
+
+    background: $color-white;
+
+    padding: 1rem 1.2rem;
+
+    border-radius: $radius-lg;
+
+    @include flex(row, center, flex-start, $space-sm);
+
+    box-shadow: $shadow-md;
+
+    border: 1px solid $color-border;
+
+    min-width: 260px;
+
+    @include respond-below(xl) {
+      left: -20px;
+    }
+
+    @include respond-below(lg) {
+      left: 50%;
+      bottom: -20px;
+
+      transform: translateX(-50%);
+    }
+
+    @include respond-below(sm) {
+      width: 100%;
+      max-width: 320px;
+
+      padding: 0.9rem;
+    }
+  }
+
+  &__badgeIcon {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: $color-cream;
+
+    @include flex-center;
+
+    color: $color-primary;
+
+    font-size: 1.4rem;
+
+    flex-shrink: 0;
+  }
+}

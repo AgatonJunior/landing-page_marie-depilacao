@@ -1,64 +1,74 @@
 import S from "./Hero.module.scss";
-import { FaWhatsapp , } from "react-icons/fa";
-import { LuCircleCheckBig } from "react-icons/lu";
-import Image from '../../assets/profissional-maria.jpg';
-
+import { FaWhatsapp } from "react-icons/fa";
+import { LuBadgeCheck } from "react-icons/lu";
+import Image from "../../assets/profissional-maria.jpg";
 
 const Hero = () => {
   return (
     <section className={S.hero}>
-      <div className={S.hero__inner}>
+      <div className={S.hero__container}>
+
+        {/* LEFT */}
         <div className={S.hero__content}>
-          <span className={S.section__label}>
+          <span className={S.hero__label}>
             Marie Depilação Designer
           </span>
-        </div>
-        <h1 className={S.hero__title}>
-          Pele lisa,<br />
-          autoestima elevada<br />
-          e cuidado<br />
-          profissional
-        </h1>
-        <p className={S.hero__text}>
-          Especialista em depilação feminina com atendimento humanizado,
-          conforto e resultados incríveis para sua pele.
-        </p>
-        <div className={S.hero__actions}>
 
-          <a href="https://wa.me/5521971432926"
-            className={S.hero__btn}
-            target="_blank"
-            rel="noreferrer">
-            <FaWhatsapp /> Agendar pelo WhatsApp
-          </a>
-          <a href="#servicos" className={S.hero__btn}>
-            Ver Serviços
-          </a>
+          <h1 className={S.hero__title}>
+            Pele lisa,
+            <br />
+            autoestima
+            <br />
+            elevada
+            <br />
+            e cuidado
+            <br />
+            profissional
+          </h1>
+
+          <p className={S.hero__description}>
+            Especialista em depilação feminina com atendimento
+            humanizado, conforto e resultados incríveis.
+          </p>
+
+          <div className={S.hero__buttons}>
+            <a
+              href="https://wa.me/5521971432926"
+              target="_blank"
+              rel="noreferrer"
+              className={S.hero__primary}
+            >
+              <FaWhatsapp />
+              Agendar pelo WhatsApp
+            </a>
+
+            <a href="#servicos" className={S.hero__secondary}>
+              Ver Serviços
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT */}
+        <div className={S.hero__imageWrapper}>
+          <img
+            src={Image}
+            alt="Maria depiladora"
+            className={S.hero__image}
+          />
+
+          <div className={S.hero__badge}>
+            <div className={S.hero__badgeIcon}>
+              <LuBadgeCheck />
+            </div>
+
+            <div>
+              <strong>Especialista Certificada</strong>
+              <span>Estética & Skin Care</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-        </div>
-        <div className={S.hero__visual}>
-          <div className={S.hero__image_wrap}>
-            <img
-              src={Image}
-              alt="Marie - Depiladora profissional"
-              className={S.hero__image}
-            />
-          </div>
-          <div className={S.hero__certification}>
-            <div className={S.hero__certification_icon}>
-              <LuCircleCheckBig size={24} />
-            </div>
-            <div className={S.hero__certification_text}>
-              <p className={S.hero__certification_title}>
-                Especialista Certificada
-              </p>
-              <p className={S.hero__certification_subtitle}>
-                Aesthetics & Skin Care
-              </p>
-            </div>
-          </div>
-          <div className={S.hero__blob} aria-hidden="true" />
-        </div>
     </section>
   );
 };
