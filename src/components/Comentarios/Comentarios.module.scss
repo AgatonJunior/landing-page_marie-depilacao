@@ -1,0 +1,137 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.comentarios {
+  @include section;
+  background: $color-cream;
+
+  &__header {
+    margin-bottom: $space-xl;
+    text-align: center;
+  }
+
+  &__grid {
+    @include auto-grid(280px, $space-md);
+  }
+
+  &__card {
+    @include card($color-white);
+    @include flex(column, flex-start, flex-start, $space-sm);
+  }
+
+  &__stars {
+    color: $color-accent;
+    font-size: $fs-md;
+    letter-spacing: 3px;
+  }
+
+  &__text {
+    @include body($fs-sm);
+    color: $color-text;
+    font-style: italic;
+    flex: 1;
+    line-height: 1.7;
+  }
+
+  &__name {
+    @include label;
+    color: $color-primary;
+    font-size: 0.7rem;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.label {
+  @include label;
+  color: $color-text-light;
+  display: block;
+}
+
+.title {
+  @include display($fs-2xl);
+  color: $color-dark;
+}
+
+// ── Formulário ──────────────────────────────────────
+
+.form {
+  @include flex(column, stretch, flex-start, $space-sm);
+  max-width: 600px;
+  margin: 0 auto $space-xl;
+}
+
+.form__row {
+  @include flex(row, center, space-between, $space-sm);
+
+  @include respond-below(sm) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.input {
+  @include body($fs-sm);
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-white;
+  color: $color-dark;
+  outline: none;
+  transition: border-color $transition-base;
+
+  &:focus { border-color: $color-primary; }
+  &::placeholder { color: $color-text-light; }
+}
+
+.textarea {
+  @extend .input;
+  resize: none;
+  width: 100%;
+}
+
+.stars__select {
+  @include flex(row, center, flex-start, 0.25rem);
+}
+
+.star {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: $color-border;
+  cursor: pointer;
+  transition: color $transition-fast;
+  padding: 0;
+  line-height: 1;
+}
+
+.star__active {
+  @extend .star;
+  color: $color-accent;
+}
+
+.btn {
+  @include btn-primary;
+  align-self: flex-end;
+
+  @include respond-below(sm) {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+.empty {
+  @include body($fs-sm);
+  color: $color-text-light;
+  text-align: center;
+  margin-top: $space-lg;
+}
+
+.subtitle {
+  @include body($fs-sm);
+  color: $color-text-light;
+  margin-top: $space-xs;
+}
