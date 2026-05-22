@@ -47,12 +47,12 @@ const SERVICOS = [
 export default function Servicos() {
   return (
     <section className={S.servicos} id='serviços'>
-      <div className={S.container}>
+      <div className={S.container} >
 
         <div className={S.servicos__header}>
 
           <div>
-            <span className={S.sectionLabel}>
+            <span className={S.sectionLabel} >
               MENU DE SERVIÇOS
             </span>
 

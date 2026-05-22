@@ -3,6 +3,7 @@ import Hero from '../components/Hero/Hero'
 import Diferenciais from '../components/Diferenciais/Diferenciais'
 import Especialista from '../components/Especialista/Especialista'
 import Servicos from '../components/Servicos/Servicos'
+import Galeria from '../components/Galeria/Galeria'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Diferenciais/>
       <Especialista />
       <Servicos />
+      <Galeria />
     </main>
   )
 }
