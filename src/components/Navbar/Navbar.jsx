@@ -3,12 +3,14 @@ import S from "./Navbar.module.scss";
 import { useState, useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
+
+
 const NAV_LINKS = [
-  { name: "Sobre", to: "/#sobre" },
-  { name: "Serviços", to: "/#serviços" },
-  { name:  "Portifólio", to: "/#portifolio" },
-  { name: "Depoimentos", to: "/#depoimentos" },
-  { name: "Contato", to: "/#contato" },
+  { label: "Sobre", to: "#sobre" },
+  { label: "Serviços", to: "#serviços" },
+  { label:  "Galeria", to: "#galeria" },
+  { label: "Depoimentos", to: "#depoimentos" },
+  { label: "Contato", to: "#contato" },
 ];
 
 const Navbar = () => {
@@ -32,7 +34,7 @@ const Navbar = () => {
         <nav className={`${S.navbar__nav} ${menuOpen ? S.navbar__navOpen : ""}`}>
           {NAV_LINKS.map((link) => (
             <a key={link.to} href={link.to} onClick={() => setMenuOpen(false)}>
-              {link.name}
+              {link.label}
             </a>
           ))}
         </nav>

@@ -5,7 +5,7 @@ import Image from "../../assets/profissional-maria.jpg";
 
 const Hero = () => {
   return (
-    <section className={S.hero}>
+    <section className={S.hero} id="sobre">
       <div className={S.hero__container}>
 
         {/* LEFT */}

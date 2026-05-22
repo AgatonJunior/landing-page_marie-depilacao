@@ -1,0 +1,168 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins' as *;
+
+.servicos {
+  background: #f8f7f5;
+
+  @include section($space-3xl);
+}
+
+.container {
+  @include container;
+}
+
+// ───────────────── HEADER
+.servicos__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 4rem;
+
+  margin-bottom: 4rem;
+
+  @include respond-below(md) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.sectionLabel {
+  @include label;
+
+  color: $color-primary;
+
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-family: $font-display;
+  font-size: 4rem;
+  line-height: 1.05;
+  font-weight: 500;
+
+  color: $color-dark;
+
+  max-width: 620px;
+
+  @include respond-below(md) {
+    font-size: 2.7rem;
+  }
+}
+
+.servicos__subtitle {
+  max-width: 330px;
+
+  font-family: $font-body;
+  font-size: 0.95rem;
+  line-height: 1.8;
+
+  color: $color-text-light;
+
+  text-align: right;
+
+  padding-top: 2rem;
+
+  @include respond-below(md) {
+    text-align: left;
+    padding-top: 0;
+  }
+}
+
+// ───────────────── GRID
+.servicos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1.4rem;
+
+  @include respond-below(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-below(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ───────────────── CARD
+.servicos__card {
+  background: transparent;
+
+  border: 1px solid #ddd4c7;
+
+  border-radius: 18px;
+
+  padding: 2rem 1.5rem;
+
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+
+  &:hover {
+    border-color: $color-primary-lt;
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.45);
+  }
+}
+
+.servicos__cardTitle {
+  font-family: $font-display;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  font-weight: 500;
+
+  color: $color-dark;
+
+  margin-bottom: 1rem;
+}
+
+.servicos__cardText {
+  font-family: $font-body;
+  font-size: 0.85rem;
+  line-height: 1.6;
+
+  color: $color-text-light;
+
+  margin-bottom: auto;
+
+  max-width: 220px;
+}
+
+// ───────────────── LINK
+.servicos__cardLink {
+  margin-top: 2rem;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-family: $font-body;
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  color: $color-primary;
+
+  text-decoration: none;
+
+  transition: gap 0.3s ease;
+
+  span {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    span {
+      transform: translateX(3px);
+    }
+  }
+}
