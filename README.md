@@ -12,7 +12,7 @@ Landing page premium desenvolvida para um estúdio de estética e depilação, c
 
 ## 📸 Preview
 
-<img width="100%" alt="preview" src="https://user-images.githubusercontent.com/0000000/preview.png">
+<img width="100%" alt="preview" src=">
 
 ---
 
