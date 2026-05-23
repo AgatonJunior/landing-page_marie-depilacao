@@ -6,6 +6,7 @@ import Servicos from '../components/Servicos/Servicos'
 import Galeria from '../components/Galeria/Galeria'
 import Comentarios from '../components/Comentarios/Comentarios'
 import CTA from '../components/CTA/CTA.jsx'
+import Footer from '../components/Footer/Footer.jsx'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Galeria />
       <Comentarios />
       <CTA />
+      <Footer />
     </main>
   )
 }

@@ -1,37 +1,55 @@
-import { Link } from "react-router-dom";
-import S from "./Navbar.module.scss";
 import { useState, useEffect } from "react";
+
 import { FaWhatsapp } from "react-icons/fa";
 
-
+import S from "./Navbar.module.scss";
 
 const NAV_LINKS = [
   { label: "Sobre", to: "#sobre" },
   { label: "Serviços", to: "#serviços" },
-  { label:  "Galeria", to: "#galeria" },
-  { label: "Cometários", to: "#comentarios" },
+  { label: "Galeria", to: "#galeria" },
+  { label: "Comentários", to: "#comentarios" },
   { label: "Contato", to: "#contato" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
     window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header  className={`${S.navbar} ${scrolled ? S.navbar__scrolled : ""}`}>
-      
-      <div className={S.navbar__inner} id="hero" >
-        <Link to="/" className={S.navbar__brand} >
-          Maria Depilação 
-        </Link>
+    <header className={`${S.navbar} ${scrolled ? S.navbar__scrolled : ""}`}>
+      <div className={S.navbar__inner}>
+        <a
+          href="/"
+          className={S.navbar__brand}
+          onClick={(e) => {
+            e.preventDefault();
 
-        <nav className={`${S.navbar__nav} ${menuOpen ? S.navbar__navOpen : ""}`}>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+
+            setMenuOpen(false);
+          }}
+        >
+          Marie Depilação
+        </a>
+
+        <nav
+          className={`${S.navbar__nav} ${menuOpen ? S.navbar__navOpen : ""}`}
+        >
           {NAV_LINKS.map((link) => (
             <a key={link.to} href={link.to} onClick={() => setMenuOpen(false)}>
               {link.label}
@@ -45,14 +63,16 @@ const Navbar = () => {
           target="_blank"
           rel="noreferrer"
         >
-          {" "}
-          Agenda agora <FaWhatsapp />{" "}
+          Agenda agora
+          <FaWhatsapp />
         </a>
 
         <button
-          className={`${S.navbar__burger} ${menuOpen ? S.navbar__burgerOpen : ""}`}
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle menu"
+          className={`${S.navbar__burger} ${
+            menuOpen ? S.navbar__burgerOpen : ""
+          }`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Abrir menu"
         >
           <span />
           <span />

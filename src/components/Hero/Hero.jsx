@@ -11,7 +11,7 @@ const Hero = () => {
         {/* LEFT */}
         <div className={S.hero__content}>
           <span className={S.hero__label}>
-            Marie Depilação Designer
+            Maria Depilação Designer
           </span>
 
           <h1 className={S.hero__title}>
