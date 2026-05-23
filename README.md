@@ -12,7 +12,7 @@ Landing page premium desenvolvida para um estúdio de estética e depilação, c
 
 ## 📸 Preview
 
-<img width="100%" alt="preview" src=">
+<img width="100%" alt="preview" src="https://landing-page-marie-depilacao.vercel.app/">
 
 ---
 
