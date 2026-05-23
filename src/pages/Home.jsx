@@ -5,6 +5,7 @@ import Especialista from '../components/Especialista/Especialista'
 import Servicos from '../components/Servicos/Servicos'
 import Galeria from '../components/Galeria/Galeria'
 import Comentarios from '../components/Comentarios/Comentarios'
+import CTA from '../components/CTA/CTA.jsx'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Servicos />
       <Galeria />
       <Comentarios />
+      <CTA />
     </main>
   )
 }

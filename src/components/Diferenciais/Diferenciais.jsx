@@ -1,5 +1,12 @@
 import S from "./Diferenciais.module.scss";
 
+import { motion } from "framer-motion";
+
+import {
+  fadeUp,
+  staggerContainer,
+} from "../../animations/reveal";
+
 import {
   LuLeaf,
   LuUserRound,
@@ -44,7 +51,7 @@ const ITEMS = [
 
 export default function Diferenciais() {
   return (
-    <section className={S.diferenciais} id="diferenciais">
+    <section className={S.diferenciais} >
       <div className={S.diferenciais__container}>
         
         <div className={S.diferenciais__heading}>
@@ -53,11 +60,21 @@ export default function Diferenciais() {
           </h2>
         </div>
 
-        <div className={S.diferenciais__grid}>
+        <motion.div
+          className={S.diferenciais__grid}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+        >
           {ITEMS.map((item) => (
-            <article
+            <motion.article
               key={item.title}
               className={S.diferenciais__card}
+              variants={fadeUp}
             >
               <div className={S.diferenciais__icon}>
                 {item.icon}
@@ -70,9 +87,9 @@ export default function Diferenciais() {
               <p className={S.diferenciais__text}>
                 {item.text}
               </p>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

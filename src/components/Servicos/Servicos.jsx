@@ -1,4 +1,12 @@
 import React from 'react';
+
+import { motion } from 'framer-motion';
+
+import {
+  fadeUp,
+  staggerContainer,
+} from '../../animations/reveal';
+
 import S from './Servicos.module.scss';
 
 const SERVICOS = [
@@ -47,12 +55,12 @@ const SERVICOS = [
 export default function Servicos() {
   return (
     <section className={S.servicos} id='serviços'>
-      <div className={S.container} >
+      <div className={S.container}>
 
         <div className={S.servicos__header}>
 
           <div>
-            <span className={S.sectionLabel} >
+            <span className={S.sectionLabel}>
               MENU DE SERVIÇOS
             </span>
 
@@ -68,11 +76,21 @@ export default function Servicos() {
 
         </div>
 
-        <div className={S.servicos__grid}>
+        <motion.div
+          className={S.servicos__grid}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+        >
           {SERVICOS.map((item) => (
-            <article
+            <motion.article
               key={item.title}
               className={S.servicos__card}
+              variants={fadeUp}
             >
               <h3 className={S.servicos__cardTitle}>
                 {item.title}
@@ -89,9 +107,9 @@ export default function Servicos() {
                 AGENDAR
                 <span>→</span>
               </a>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -26,8 +26,8 @@ const Navbar = () => {
   return (
     <header  className={`${S.navbar} ${scrolled ? S.navbar__scrolled : ""}`}>
       
-      <div className={S.navbar__inner} >
-        <Link to="/" className={S.navbar__brand}>
+      <div className={S.navbar__inner} id="hero" >
+        <Link to="/" className={S.navbar__brand} >
           Maria Depilação 
         </Link>
 
