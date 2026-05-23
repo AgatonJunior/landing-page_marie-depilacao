@@ -12,7 +12,7 @@ Landing page premium desenvolvida para um estúdio de estética e depilação, c
 
 ##  Link do projeto
 
-<a href="https://landing-page-marie-depilacao.vercel.app/">
+<a href="https://landing-page-marie-depilacao.vercel.app/"> Site no vercel </a>
 
 ---
 
